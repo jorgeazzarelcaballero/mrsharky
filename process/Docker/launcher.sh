@@ -4,19 +4,19 @@ mkdir -p data
 mkdir -p mysql-files
 mkdir -p climateFiles
 
-USER='mrsharky'
+USER='root'
 NAME="climate"
 MYSQL_UID="$(id -u ${USER})"	# Users UID
 MYSQL_GID="$(id -g ${USER})" # Users GID
-MYSQLPASS="whateverYouWant"
+MYSQLPASS="ABC123"
 #WWW="/media/df926ae2-fef9-4ab3-ae5e-35d72f10131d/Dropbox/PhD/Reboot/Projects/Website"
 #MYSQLDATA="/home/mrsharky/Code/mrsharky/process/Docker/data"
 #MYSQLFILES="/home/mrsharky/Code/mrsharky/process/Docker/mysql-files"
 #FILES="/home/mrsharky/Code/mrsharky/process/Docker/climateFiles"
 
-MYSQLDATA="/mnt/SnapDisk_2TB_02/climate/data"
-MYSQLFILES="/mnt/SnapDisk_2TB_02/climate/mysql-files"
-FILES="/mnt/SnapDisk_2TB_02/climate/climateFiles"
+MYSQLDATA="/home/mrsharky/climate/data"
+MYSQLFILES="/home/mrsharky/climate/mysql-files"
+FILES="/home/mrsharky/climate/climateFiles"
 
 
 IMAGE="jpierret/climate"
