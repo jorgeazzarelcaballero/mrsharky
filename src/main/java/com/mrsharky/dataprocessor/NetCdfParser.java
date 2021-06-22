@@ -198,6 +198,7 @@ public class NetCdfParser {
         // Get database info
         _inputFile = inputFile;
         _variableOfInterest = variableOfInterest;
+        System.out.println("var OfI is: "_variableOfInterest);
         _timeVariable = timeVariable;
 
         DBI dbi = null;
