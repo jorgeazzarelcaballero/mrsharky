@@ -341,7 +341,7 @@ public class NetCdfParser {
             System.out.println("In the try block");
             dataFile = NetcdfFile.open(_inputFile, null);
             System.out.println("used netcdf thing");
-            Variable varOfInterest = dataFile.findVariable(_variableOfInterest);
+            Variable varOfInterest = dataFile.findVariable("soilw");
             System.out.println("tried to use find variable");
             System.out.println("First: " + varOfInterest.getFullName()); // varOfinterest is NULL
             System.out.println(_variableOfInterest);
