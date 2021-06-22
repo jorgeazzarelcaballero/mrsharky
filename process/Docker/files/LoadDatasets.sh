@@ -99,8 +99,15 @@ while IFS=$'\t' read -r DATASETNAME DOWNLOADLOCATION INPUTFILE OUTPUTFILE DATABA
 	echo ""
 	START=$(date +%s)
 
+# 	while (nc files exist)
+#    get nc file via ftp
+#    nccopy to convert the file to netcdf4-classic
+#    feed converted file to netcdfparser
+
+	echo "Name of the input file: // === ${INPUTFILE}"
+	nccopy -k 4 $WORKFOLDER/Data/${INPUTFILE} $WORKFOLDER/Data/file.nc
 	java -cp ${JARLOCATION} ${CLASSLOCATION} \
-		-INPUT $WORKFOLDER/Data/${INPUTFILE} -OUTPUT /var/lib/mysql-files/${OUTPUTFILENAME}\
+		-INPUT $WORKFOLDER/Data/file.nc -OUTPUT /var/lib/mysql-files/${OUTPUTFILENAME}\
 		-DATABASEURL "jdbc:mysql://${SQLSERVER}/${DATABASESTORE}"\
 		-DATABASEUSERNAME "${SQLUSERNAME}" -DATABASEPASSWORD "${SQLPASS}"\
 		-VARIABLEOFINTEREST "${VARIABLEOFINTEREST}" -TIMEVARIABLE "time"
@@ -289,7 +296,7 @@ SELECT																			\
 
 echo "Finished Loading all the requested datasets"
 mysqldump -p${SQLPASS} --routines mrsharky_GriddedClimateData > $WORKFOLDER/Data/mrsharky_GriddedClimateData.sql
-gzip -f $WORKFOLDER/Data/mrsharky_GriddedClimateDatasql
+gzip -f $WORKFOLDER/Data/mrsharky_GriddedClimateData.sql
 
 #echo ${DOWNLOADLOCATION}
 #echo ${INPUTFILE}
@@ -299,7 +306,3 @@ gzip -f $WORKFOLDER/Data/mrsharky_GriddedClimateDatasql
 #DOWNLOADLOCATION=`echo $SQLVALUES | awk '{printf $2}'`
 #echo $DOWNLOADLOCATION
 #echo $INPUTFILE
-
-
-
-
