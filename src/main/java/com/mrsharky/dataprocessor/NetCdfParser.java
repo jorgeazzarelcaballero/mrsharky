@@ -197,7 +197,7 @@ public class NetCdfParser {
             String variableOfInterest, String timeVariable) {
         // Get database info
         _inputFile = inputFile;
-        _variableOfInterest = variableOfInterest;
+        _variableOfInterest = "soilw";
         System.out.println("var OfI is: " + _variableOfInterest);
         _timeVariable = timeVariable;
 
@@ -344,7 +344,7 @@ public class NetCdfParser {
             System.out.println("tried to use find variable");
             System.out.println("First: " + varOfInterest.getFullName()); // varOfinterest is NULL
             System.out.println(_variableOfInterest);
-
+            System.out.println("made it past var of i");
             OutputStream outputStream = new FileOutputStream(outputFile);
             Writer outputStreamWriter = new OutputStreamWriter(outputStream);
 
