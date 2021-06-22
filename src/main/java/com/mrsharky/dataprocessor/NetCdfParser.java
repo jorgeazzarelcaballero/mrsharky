@@ -197,7 +197,7 @@ public class NetCdfParser {
             String variableOfInterest, String timeVariable) {
         // Get database info
         _inputFile = inputFile;
-        _variableOfInterest = "soilw";
+        _variableOfInterest = variableOfInterest;
         System.out.println("var OfI is: " + _variableOfInterest);
         _timeVariable = timeVariable;
 
@@ -247,6 +247,7 @@ public class NetCdfParser {
             System.out.println("\nFinding all parameters");
             for (Variable findVar : allVariables) {
                 System.out.println(findVar.getDimensions());
+                
                 if (findVar.getFullName().toUpperCase().equals(variableOfInterest.toUpperCase())) {
                     Variable currVar = dataFile.findVariable(variableOfInterest);
                     variableOfInterestUnits = currVar.getUnitsString();
