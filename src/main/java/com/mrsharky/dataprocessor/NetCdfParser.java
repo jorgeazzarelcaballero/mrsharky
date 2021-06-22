@@ -336,9 +336,11 @@ public class NetCdfParser {
         boolean sendToDb = false;
         NetcdfFile dataFile = null;
         try {
+            System.out.println("In the try block");
             dataFile = NetcdfFile.open(_inputFile, null);
+            System.out.println("used netcdf thing");
             Variable varOfInterest = dataFile.findVariable(_variableOfInterest);
-
+            System.out.println("tried to use find variable");
             System.out.println("First: " + varOfInterest.getFullName()); // varOfinterest is NULL
             System.out.println(_variableOfInterest);
 
@@ -525,6 +527,7 @@ public class NetCdfParser {
             }
             outputStreamWriter.close();
         } catch (IOException ex) {
+            System.out.println("in the catchBlock");
             Logger.getLogger(NetCdfParser.class.getName()).log(Level.SEVERE, null, ex);
             System.exit(-1);
         } catch (InvalidRangeException ex) {
